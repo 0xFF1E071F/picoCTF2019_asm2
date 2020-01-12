@@ -17,15 +17,13 @@ include \masm32\include\user32.inc
 include \masm32\include\kernel32.inc
 include \masm32\include\gdi32.inc
 include ./inc/mfmplayer.inc                ; XM player (thanks to Lise_Grim)
-include	./inc/cryptohash.inc				;Pour les Appels MD5
-include	./inc/biglib.inc					;Pour les Appels _Big (calcul RSA)
+
 
 includelib \masm32\lib\user32.lib
 includelib \masm32\lib\kernel32.lib
 includelib \masm32\lib\gdi32.lib
 includelib ./lib/mfmplayer.lib
-includelib ./lib/cryptohash.lib
-includelib ./lib/biglib.lib
+
 ; Additional libs
 
 ; ------------------------------------------------------------------------------
@@ -85,7 +83,7 @@ sInfo        TCHAR "PicoCTF 2019 asm2", 10, 13
              TCHAR "Protection: none", 10, 13
              TCHAR 10, 13
              TCHAR "Author: tiphergane", 10, 13
-             TCHAR "WWW: http://tiphergane.free.fr", 10, 13
+             TCHAR "WWW: https://game2019.picoctf.com", 10, 13
              TCHAR 10, 13
              TCHAR "Thanks to: RaX|, Neitsa, Meat, Haiklr", 10, 13
              TCHAR "Greetings: NGEN, FFF, RIF, CiM, Defisfc", 10, 13
