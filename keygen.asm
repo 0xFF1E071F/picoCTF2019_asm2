@@ -429,8 +429,8 @@ KeygenProc PROC hWnd: HWND
 
   push dword ptr [ebp-4h]
 		
-  invoke	wsprintf, addr sSerial, addr wsptf					;recupere les valeurs des push pour les passer dans %04X%04X, avec en forme %sStart%sEnd, et les balance dans l'offset sSerial
-  INVOKE SetDlgItemText, hWnd, IDC_SERIAL, ADDR sSerial			;Balance l'offset sSerial dans IDC_SERIAL (Textbox du serial)
+  invoke	wsprintf, addr sSerial, addr wsptf					
+  INVOKE SetDlgItemText, hWnd, IDC_SERIAL, ADDR sSerial			
    ;end of keygen routine
   jmp EndGen
  
