@@ -1,0 +1,68 @@
+/* Keygen template - Resources
+ * =============================================================================
+ * Author : Canterwood <canterwood@altern.org>
+ * Website: http://kickme.to/canterwood
+ * IDE    : MASM32 8
+ * =============================================================================
+ * 03.01.2004 */
+
+#include "\masm32\include\resource.h"
+
+// Resource ids
+// -----------------------------------------------------------------------------
+#define IDD_KEYGEN   100
+#define IDD_INFO     101
+
+#define IDI_KEYGEN   200
+#define IDB_KEYGEN   300
+
+#define IDC_TITLE    400
+#define IDC_ID       401
+#define IDC_GENERATE 402
+#define IDC_COPY     403
+#define IDC_EXIT     404
+#define IDC_NAME     405
+#define IDC_SERIAL   406
+#define IDC_INFO     407
+#define IDC_CLOSE    408
+
+#define IDM_KEYGEN   500
+// -----------------------------------------------------------------------------
+
+LANGUAGE 0, 0
+
+// Image files
+IDI_KEYGEN ICON   "./ico/keygen.ico"
+IDB_KEYGEN BITMAP "./img/keygen.bmp"
+
+// Main dialog
+IDD_KEYGEN DIALOG 0, 0, 200, 100
+STYLE WS_POPUP | WS_SYSMENU | DS_CENTER
+FONT 8, "Tahoma"
+BEGIN
+  CTEXT "", IDC_TITLE, 4, 4, 192, 92
+
+  CONTROL IDB_KEYGEN, IDC_STATIC, STATIC, SS_BITMAP | SS_CENTERIMAGE, 8, 14, 184, 36
+
+  LTEXT "Name:", IDC_STATIC, 8, 54, 20, 10
+  CONTROL "", IDC_NAME, EDIT, WS_TABSTOP | ES_AUTOHSCROLL, 32, 54, 160, 10
+  LTEXT "Serial:", IDC_STATIC, 8, 68, 20, 10
+  CONTROL "", IDC_SERIAL, EDIT, WS_TABSTOP | ES_READONLY | ES_AUTOHSCROLL, 32, 68, 160, 10
+
+  CTEXT "", IDC_ID, 8, 82, 20, 12, SS_NOTIFY | SS_CENTERIMAGE
+  DEFPUSHBUTTON "&Generate", IDC_GENERATE, 32, 82, 60, 12, BS_OWNERDRAW
+  PUSHBUTTON "&Copy", IDC_COPY, 96, 82, 46, 12, BS_OWNERDRAW
+  PUSHBUTTON "&Exit", IDC_EXIT, 146, 82, 46, 12, BS_OWNERDRAW
+END
+
+// About box
+IDD_INFO DIALOGEX 0, 0, 170, 126
+STYLE WS_POPUP | DS_CENTER
+FONT 8, "Tahoma"
+BEGIN
+  CTEXT "", IDC_INFO, 4, 4, 162, 100
+  DEFPUSHBUTTON "&Close", IDC_CLOSE, 60, 108, 50, 12, BS_OWNERDRAW
+END
+
+// XM Music
+IDM_KEYGEN RCDATA "./XM/sky sunday.xm"
