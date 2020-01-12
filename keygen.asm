@@ -88,7 +88,7 @@ sInfo        TCHAR "PicoCTF 2019 asm2", 10, 13
              TCHAR "Thanks to: RaX|, Neitsa, Meat, Haiklr", 10, 13
              TCHAR "Greetings: NGEN, FFF, RIF, CiM, Defisfc", 10, 13
              TCHAR 10, 13
-             TCHAR "Music: Keep On - Genius & Nagz", 10, 13
+             TCHAR "Music: So Close", 10, 13
              TCHAR "Image: Nact logo - Meat", 0
 
 ; Keygen definided-variables
