@@ -411,21 +411,21 @@ KeygenProc PROC hWnd: HWND
   
   Generation:
 
-  mov eax, 9h
-  mov ebx, 1eh
+  mov eax, 9h									;mov 9h in eax
+  mov ebx, 1eh									;mov 1eh in ebx
 
     asm2:
-    mov    DWORD PTR [ebp-4h],ebx
-    mov    DWORD PTR [ebp-8h],eax
-    jmp    asm3
+    mov    DWORD PTR [ebp-4h],ebx						;mov ebx in ebp-4 stack
+    mov    DWORD PTR [ebp-8h],eax						;mov eax in ebp-8 stack
+    jmp    asm3									;jump to asm3 label
     check:
-    add    DWORD PTR [ebp-4h],1h
-    add    DWORD PTR [ebp-8h],0a9h
+    add    DWORD PTR [ebp-4h],1h						;add 1h to the value in ebp-4
+    add    DWORD PTR [ebp-8h],0a9h						;add a9h to the value in ebp-8
     asm3:
-    cmp    DWORD PTR [ebp-8h],47a6h
-    jle    check
+    cmp    DWORD PTR [ebp-8h],47a6h						;compare if value in ebp-8 equal 4716h
+    jle    check								;if lower or equal, jump to check label
 
-  push dword ptr [ebp-4h]
+  push dword ptr [ebp-4h]							;push value from ebp-4 in memory
 		
   invoke	wsprintf, addr sSerial, addr wsptf					
   INVOKE SetDlgItemText, hWnd, IDC_SERIAL, ADDR sSerial			
