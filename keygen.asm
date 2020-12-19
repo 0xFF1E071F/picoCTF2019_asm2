@@ -242,7 +242,7 @@ DialogProc PROC hWnd: HWND, uMsg: UINT, wParam: WPARAM, lParam: LPARAM
       INVOKE DialogBoxParam, hInstance, IDD_INFO, hWnd, ADDR InfoProc, 0
     .ELSEIF (edx == EN_UPDATE && ax == IDC_NAME) || wParam == IDC_GENERATE
 		INVOKE KeygenProc, hWnd
-	    
+
     .ELSEIF wParam == IDC_COPY
       INVOKE GetDlgItemText, hWnd, IDC_SERIAL, ADDR sSerial, SIZEOF sSerial
 
@@ -401,14 +401,14 @@ KeygenProc PROC hWnd: HWND
   push edi
   push esi
   push ebx
-  
-    
+
+
  INVOKE GetDlgItemText, hWnd, IDC_NAME, ADDR sName, SIZEOF sName
  ;invoke CharUpper, addr sName
   cmp eax,5
   jl	ValidityError
 
-  
+
   Generation:
 
   mov eax, 9h									;mov 9h in eax
@@ -426,12 +426,12 @@ KeygenProc PROC hWnd: HWND
     jle    check								;if lower or equal, jump to check label
 
   push dword ptr [ebp-4h]							;push value from ebp-4 in memory
-		
-  invoke	wsprintf, addr sSerial, addr wsptf					
-  INVOKE SetDlgItemText, hWnd, IDC_SERIAL, ADDR sSerial			
+
+  invoke	wsprintf, addr sSerial, addr wsptf
+  INVOKE SetDlgItemText, hWnd, IDC_SERIAL, ADDR sSerial
    ;end of keygen routine
   jmp EndGen
- 
+
   ValidityError:
   INVOKE SetDlgItemText, hWnd, IDC_SERIAL, ADDR sValidError
 
